@@ -1,3 +1,3 @@
 # Kryption
 
-Sample Encryption and Decryption Text using Cipher Algorithm
+Example of Encrypted and Decrypted Text Using the Cipher Algorithm
