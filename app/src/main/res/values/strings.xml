@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Kryption</string>
+    <string name="enter_text">Enter Plain Text</string>
+    <string name="plain_text">Plain Text</string>
+    <string name="key">Key</string>
+    <string name="choose_method">Choose Method</string>
+    <string name="encryption">Encryption</string>
+    <string name="decryption">Decryption</string>
+    <string name="result">Result</string>
+    <string name="process">Process</string>
+    <string name="empty_plain_text">Field cannot be empty</string>
+</resources>
