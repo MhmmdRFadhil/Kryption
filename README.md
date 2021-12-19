@@ -1,3 +1,3 @@
 # Kryption
 
-Sample Encryption and Decryption Text using Ciphert Algorithm
+Sample Encryption and Decryption Text using Cipher Algorithm
