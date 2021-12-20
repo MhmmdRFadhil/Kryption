@@ -1,45 +1,53 @@
 package com.ryz.kryption.ui
 
 import androidx.lifecycle.ViewModel
-import com.google.android.material.slider.Slider
 
-class MainViewModel: ViewModel() {
-    var result =  ""
+class MainViewModel : ViewModel() {
+    var result = ""
 
-    fun encryption(plainText: String, slider: Slider) {
-        var c: Char
-        var cipherText = ""
-        for (i in plainText.indices) {
-            c = plainText[i]
-            if (Character.isLetter(c)) {
-                c = Character.toUpperCase(c)
-                c -= 'A'.code
-                c = (c + slider.value.toInt()).code.mod(26).toChar()
-                c += 'A'.code
+    fun encryption(plainText: String, key: Int): String {
+        val offset = key % 26
+        if (offset == 0) return plainText
+
+        var d: Char
+        val chars = CharArray(plainText.length)
+
+        for ((index, c) in plainText.withIndex()) {
+            if (c in 'A'..'Z') {
+                d = c + offset
+                if (d > 'Z') d -= 26
+            } else if (c in 'a'..'z') {
+                d = c + offset
+                if (d > 'z') d -= 26
+            } else {
+                d = c
             }
-            cipherText += c
+            chars[index] = d
         }
-        result = cipherText
+        result = chars.joinToString("")
+        return result
     }
 
-    fun decryption(cipherText: String, slider: Slider) {
-        var c: Char
-        var plainText = ""
-        for (i in cipherText.indices) {
-            c = cipherText[i]
-            if (Character.isLetter(c)) {
-                c = Character.toUpperCase(c)
-                c -= 'A'.code
-                c = if ((c - slider.value.toInt()).code < 0)
-                    (c - slider.value.toInt())
-                else
-                    (c - slider.value.toInt()).code.mod(26).toChar()
+    fun decryption(cipherText: String, key: Int): String {
+        val offset = 26 - key
+        if (offset == 0) return cipherText
 
-                c += 'A'.code
-                c = Character.toLowerCase(c)
+        var d: Char
+        val chars = CharArray(cipherText.length)
+
+        for ((index, c) in cipherText.withIndex()) {
+            if (c in 'A'..'Z') {
+                d = c + offset
+                if (d > 'Z') d -= 26
+            } else if (c in 'a'..'z') {
+                d = c + offset
+                if (d > 'z') d -= 26
+            } else {
+                d = c
             }
-            plainText += c
+            chars[index] = d
         }
-        result = plainText
+        result = chars.joinToString("")
+        return result
     }
 }

@@ -40,12 +40,12 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
     }
 
     private fun encryptionText(plainText: String) {
-        viewModel.encryption(plainText, binding.slider)
+        viewModel.encryption(plainText, binding.slider.value.toInt())
         displayResult()
     }
 
     private fun decryptionText(cipherText: String) {
-        viewModel.decryption(cipherText, binding.slider)
+        viewModel.decryption(cipherText, binding.slider.value.toInt())
         displayResult()
     }
 
