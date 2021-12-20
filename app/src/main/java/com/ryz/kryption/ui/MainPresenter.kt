@@ -1,8 +1,5 @@
 package com.ryz.kryption.ui
 
-import android.view.View
-import android.widget.ImageView
-
 class MainPresenter {
     private var view: MainView? = null
 
@@ -10,12 +7,8 @@ class MainPresenter {
         this.view = view
     }
 
-    fun check(text: String, copy: ImageView) {
-        if (text.isEmpty()) {
+    fun check(text: String) {
+        if (text.isEmpty())
             view?.onPlainTextEmpty()
-            copy.visibility = View.GONE
-        } else {
-            copy.visibility = View.VISIBLE
-        }
     }
 }

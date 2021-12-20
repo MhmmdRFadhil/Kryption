@@ -9,4 +9,5 @@
     <string name="result">Result</string>
     <string name="process">Process</string>
     <string name="empty_plain_text">Field cannot be empty</string>
+    <string name="copied_successfully">Text copied successfully</string>
 </resources>

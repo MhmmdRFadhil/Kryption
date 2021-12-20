@@ -56,8 +56,14 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
     }
 
     private fun displayResult() {
+        if (viewModel.result == "") {
+            binding.imgCopy.visibility = View.GONE
+        } else {
+            binding.imgCopy.visibility = View.VISIBLE
+        }
         binding.tvResult.text = viewModel.result
     }
+
 
     override fun onPlainTextEmpty() {
         binding.edtText.error = getString(R.string.empty_plain_text)
@@ -74,13 +80,14 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
                         binding.edtText.text.toString().trim()
                     )
                 }
-                mainPresenter.check(binding.edtText.text.toString().trim(), binding.imgCopy)
+                mainPresenter.check(binding.edtText.text.toString().trim())
             }
             R.id.img_copy -> {
                 val clipBoard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 val clip = ClipData.newPlainText("Copy", binding.tvResult.text)
                 clipBoard.setPrimaryClip(clip)
-                Toast.makeText(this, "Text copied successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.copied_successfully), Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }

@@ -7,7 +7,10 @@ class MainViewModel : ViewModel() {
 
     fun encryption(plainText: String, key: Int): String {
         val offset = key % 26
-        if (offset == 0) return plainText
+        if (offset == 0) {
+            result = plainText
+            return result
+        }
 
         var d: Char
         val chars = CharArray(plainText.length)
@@ -30,7 +33,10 @@ class MainViewModel : ViewModel() {
 
     fun decryption(cipherText: String, key: Int): String {
         val offset = 26 - key
-        if (offset == 0) return cipherText
+        if (offset == 0) {
+            result = cipherText
+            return result
+        }
 
         var d: Char
         val chars = CharArray(cipherText.length)
