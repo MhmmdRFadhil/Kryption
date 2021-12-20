@@ -90,26 +90,40 @@
             android:id="@+id/tv_title_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/open_sans_medium"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/open_sans_semi_bold"
             android:text="@string/result"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/spinner"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/spinner"
             app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
         <TextView
             android:id="@+id/tv_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/img_copy"
+            app:layout_constraintStart_toStartOf="@+id/spinner"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_result"
+            tools:text="@tools:sample/lorem" />
+
+        <ImageView
+            android:id="@+id/img_copy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/open_sans_medium"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/spinner"
-            app:layout_constraintStart_toStartOf="@+id/spinner"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_result" />
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_copy"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_result"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_result"
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
 
         <Button
             android:id="@+id/btn_encryption_decryption"
@@ -117,9 +131,9 @@
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="32dp"
             android:text="@string/process"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/spinner"

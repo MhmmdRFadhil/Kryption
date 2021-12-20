@@ -1,9 +1,13 @@
 package com.ryz.kryption.ui
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.ryz.kryption.R
 import com.ryz.kryption.common.SpinnerListener
@@ -27,7 +31,9 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
 
         initial()
         displayResult()
+
         binding.btnEncryptionDecryption.setOnClickListener(this@MainActivity)
+        binding.imgCopy.setOnClickListener(this@MainActivity)
     }
 
     private fun initial() {
@@ -68,7 +74,13 @@ class MainActivity : AppCompatActivity(), MainView, View.OnClickListener {
                         binding.edtText.text.toString().trim()
                     )
                 }
-                mainPresenter.check(binding.edtText.text.toString().trim())
+                mainPresenter.check(binding.edtText.text.toString().trim(), binding.imgCopy)
+            }
+            R.id.img_copy -> {
+                val clipBoard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clip = ClipData.newPlainText("Copy", binding.tvResult.text)
+                clipBoard.setPrimaryClip(clip)
+                Toast.makeText(this, "Text copied successfully", Toast.LENGTH_SHORT).show()
             }
         }
     }
