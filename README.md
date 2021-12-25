@@ -1,6 +1,7 @@
 # Kryption
 
-Simple Android App Encryption and Decryption Text Using Caesar Cipher Algorithm
+Simple Android App Encryption and Decryption Text Using Caesar Cipher Algorithm <br><br>
+[![Platform](https://img.shields.io/badge/platform-Android-green.svg)](http://developer.android.com/index.html)
 
 ## Screenshot
   <img src="/screenshot/preview1.jpg"
