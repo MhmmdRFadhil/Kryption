@@ -12,8 +12,7 @@ Simple Android App Encryption and Decryption Text Using Caesar Cipher Algorithm 
         width="250" />
         
 ## Feature
-Several features in this application: <br><br>
-<b>User View</b>
+Several features in this application:
 - Encryption and Decryption Text 
 - Set Key Using Slider
 - Etc
